@@ -24,7 +24,7 @@ export default function HeaderNavigator({ data }: HeaderNavigatorProps) {
       document.body.style.overflowY = 'auto';
     }
   }, [open]);
-
+  console.log(isMobile);
   return (
     <React.Fragment>
       <div

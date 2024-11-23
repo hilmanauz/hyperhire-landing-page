@@ -8,7 +8,7 @@ const breakpoints = {
   1280: 'xl',
   1536: '2xl',
 };
-const mobileView = new Set(['md', 'sm', 'xs']);
+const mobileView = new Set(['sm', 'xs']);
 
 const useBreakpoint = () => {
   const [breakpoint, setBreakPoint] = useState('');
