@@ -1,6 +1,5 @@
-export const checkEnvironment = () => {
-  const base_url =
-    process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hyperhire-landing-page-fvh6.vercel.app';
+export const checkEnvironment = (host: string | null) => {
+  const base_url = process.env.NODE_ENV === 'development' ? `http://${host}` : `https://${host}`;
 
   return base_url;
 };
