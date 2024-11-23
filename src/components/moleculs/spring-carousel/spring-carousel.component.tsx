@@ -7,7 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 
 const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   return (
-    // @ts-expect-error
+    // @ts-expect-error: Didn't know what types for event touches on mobile view
     evt.touches || evt.originalEvent.touches
   );
 };
@@ -28,7 +28,7 @@ export default function SpringCarousel<T extends Record<string, any>>(props: Spr
           onClick: () => setGoToSlide(index),
         };
       }),
-    [goToSlide],
+    [goToSlide, props],
   );
 
   const [cards, setCards] = React.useState(table);
