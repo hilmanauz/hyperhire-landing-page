@@ -14,7 +14,7 @@ const ButtonComponent: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> 
       className={classNames(
         className || '',
         props.variant && variantToStylesMapper[props.variant],
-        'inline-flex items-center gap-2 py-1.5 px-6 text-sm/6 font-bold focus:outline-none',
+        'inline-flex items-center gap-2 py-1.5 px-6 text-base/6 font-bold focus:outline-none',
       )}
     />
   );

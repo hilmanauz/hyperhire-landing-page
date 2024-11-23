@@ -22,7 +22,7 @@ const config: Config = {
         sm: '2rem',
         lg: '4rem',
         xl: '6rem',
-        '2xl': '10rem',
+        '2xl': '7rem',
       },
     },
   },
