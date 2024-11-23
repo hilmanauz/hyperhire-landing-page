@@ -1,10 +1,11 @@
 import { Button, Container } from '@/components/atoms';
 import { PopoverHoverButton } from '@/components/moleculs';
+import { checkEnvironment } from '@/utils/checkEnvironment';
 import Image from 'next/image';
 import React from 'react';
 
 export default async function HeaderNav() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/navigations`);
+  const response = await fetch(checkEnvironment().concat('/api/navigations'));
   const data = await response.json();
   return (
     <Container>
