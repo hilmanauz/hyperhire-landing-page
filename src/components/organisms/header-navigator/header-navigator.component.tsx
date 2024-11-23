@@ -13,7 +13,9 @@ export default function HeaderNavigator({ data }: HeaderNavigatorProps) {
   const [open, setOpen] = React.useState(false);
   const { isMobile } = useBreakpoint();
   React.useEffect(() => {
-    !isMobile && setOpen(false);
+    if (!isMobile) {
+      setOpen(false);
+    }
   }, [isMobile]);
   React.useEffect(() => {
     if (open) {
