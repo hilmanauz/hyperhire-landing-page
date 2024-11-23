@@ -12,15 +12,24 @@ const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
 };
 
 export function SpringCarousel(props: SpringCarouselProps) {
-  const table = props.cards.map((element, index) => {
-    return { ...element, onClick: () => setGoToSlide(index) };
-  });
-
   const [offsetRadius, setOffsetRadius] = React.useState(2);
   const [showArrows, setShowArrows] = React.useState(false);
   const [goToSlide, setGoToSlide] = React.useState<number>(0);
   const [state, setState] = React.useState<{ xDown: number | null; yDown: number | null }>({ xDown: 0, yDown: 0 });
-  const [cards] = React.useState(table);
+
+  const table = React.useMemo(
+    () =>
+      props.cards(goToSlide).map((element, index) => {
+        return { ...element, onClick: () => setGoToSlide(index) };
+      }),
+    [goToSlide],
+  );
+
+  const [cards, setCards] = React.useState(table);
+
+  React.useEffect(() => {
+    setCards(table);
+  }, [table]);
 
   React.useEffect(() => {
     setOffsetRadius(props.offset);

@@ -6,21 +6,21 @@ import Image from 'next/image';
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { ArrowRightIcon } from '@heroicons/react/16/solid';
+import React from 'react';
 
 export default function Home() {
-  let cards = [
+  let cards = (slideIdx: number) => [
     {
       key: 1,
-      content: <CarouselCard />,
+      content: <CarouselCard index={1} slideIdx={slideIdx} />,
     },
     {
       key: 2,
-      content: <CarouselCard />,
+      content: <CarouselCard index={2} slideIdx={slideIdx} />,
     },
     {
       key: 3,
-      content: <CarouselCard />,
+      content: <CarouselCard index={3} slideIdx={slideIdx} />,
     },
   ];
   const settings: Settings = {
