@@ -32,7 +32,7 @@ export default function HeaderNavigator({ data }: HeaderNavigatorProps) {
           open && 'show',
         )}>
         <div className="navigator__items">
-          <Image src={'/footer-logo.png'} alt="logo" height={50} width={114} className="mx-6 my-1" />
+          <Image src={'/footer-logo.png'} alt="logo" height={50} width={114} className="mx-6 my-1 md:hidden flex" />
           {data.map((item, idx) => (
             <div key={`${item.title}-${idx}`} className="navigator__item">
               {item.children ? (
@@ -42,7 +42,7 @@ export default function HeaderNavigator({ data }: HeaderNavigatorProps) {
                   <PopoverHoverButton linksArray={item.children} menuTitle={item.title} />
                 )
               ) : (
-                <Button className={'font-extrabold w-full'}>{item.title}</Button>
+                <Button className={'md:text-white font-extrabold w-full md:w-auto'}>{item.title}</Button>
               )}
             </div>
           ))}
