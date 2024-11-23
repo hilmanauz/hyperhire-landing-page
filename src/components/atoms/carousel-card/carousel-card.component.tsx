@@ -7,6 +7,7 @@ import { CarouselCardProps } from './carousel-card.types';
 import useBreakpoint from '@/hooks/useBreakpoint';
 import { classNames } from '@/utils/classNames';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function CarouselCard<T extends Record<string, any>>({ index, slideIdx, data }: CarouselCardProps<T>) {
   const { isMobile } = useBreakpoint();
 

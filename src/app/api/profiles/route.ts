@@ -8,7 +8,7 @@ export type ProfilesDataProps = {
   title: Array<string>;
 };
 
-export async function GET(request: Request) {
+export async function GET() {
   const data = [
     {
       url: '/image-carousel.png',

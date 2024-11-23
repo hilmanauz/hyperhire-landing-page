@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function SimpleCard<T extends Record<string, any>>({ data, idx }: { data: T; idx: number }) {
   return (
     <div style={{ width: '332px' }} className="pr-3" key={`${data.title}-${idx}`}>

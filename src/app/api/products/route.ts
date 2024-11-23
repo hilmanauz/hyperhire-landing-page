@@ -5,7 +5,7 @@ export type ProductsDataProps = {
   title: string;
 };
 
-export async function GET(request: Request) {
+export async function GET() {
   const data = [
     { url: '/icon-marketing.png', title: '퍼블리셔' },
     { url: '/icon-image.png', title: '해외 마케팅' },

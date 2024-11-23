@@ -7,11 +7,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 
 const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   return (
-    //@ts-ignore
+    // @ts-expect-error
     evt.touches || evt.originalEvent.touches
   );
 };
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function SpringCarousel<T extends Record<string, any>>(props: SpringCarouselProps<T>) {
   const [offsetRadius, setOffsetRadius] = React.useState(2);
   const [showArrows, setShowArrows] = React.useState(false);
@@ -42,11 +43,11 @@ export default function SpringCarousel<T extends Record<string, any>>(props: Spr
   }, [props.offset, props.showArrows]);
 
   const handleTouchMove: React.TouchEventHandler<HTMLDivElement> = (evt) => {
-    let xUp = evt.touches[0].clientX;
-    let yUp = evt.touches[0].clientY;
+    const xUp = evt.touches[0].clientX;
+    const yUp = evt.touches[0].clientY;
 
-    let xDiff = (state.xDown || 0) - xUp;
-    let yDiff = (state.yDown || 0) - yUp;
+    const xDiff = (state.xDown || 0) - xUp;
+    const yDiff = (state.yDown || 0) - yUp;
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       if (xDiff > 0) {
         setGoToSlide((val) => val + 1);

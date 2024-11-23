@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
   const data = [
     { title: '채용' },
     { title: '해외 개발자 원격 채용' },

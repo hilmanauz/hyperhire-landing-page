@@ -6,6 +6,7 @@ import { Button, Tooltip } from '@/components/atoms';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
 import './popover-hover-button.css';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function PopoverHoverButton<T extends Record<string, any>>({
   menuTitle,
   linksArray,

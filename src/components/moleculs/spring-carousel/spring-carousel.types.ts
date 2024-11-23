@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type SpringCarouselProps<T extends Record<string, any>> = {
   offset: number;
   showArrows?: boolean;
