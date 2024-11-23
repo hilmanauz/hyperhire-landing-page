@@ -3,6 +3,7 @@ import { config } from 'react-spring';
 import { SpringCarouselProps } from './spring-carousel.types';
 import CarouselComp from 'react-spring-3d-carousel';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
+import useBreakpoint from '@/hooks/useBreakpoint';
 
 const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   return (
@@ -12,6 +13,7 @@ const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
 };
 
 export function SpringCarousel(props: SpringCarouselProps) {
+  const { isMobile } = useBreakpoint();
   const [offsetRadius, setOffsetRadius] = React.useState(2);
   const [showArrows, setShowArrows] = React.useState(false);
   const [goToSlide, setGoToSlide] = React.useState<number>(0);
@@ -84,11 +86,11 @@ export function SpringCarousel(props: SpringCarouselProps) {
       {showArrows && (
         <React.Fragment>
           <ChevronLeftIcon
-            className="absolute text-white -left-[8%] top-1/2 z-10 w-8 h-8 hover:text-gray-500 cursor-pointer"
+            className="absolute md:text-white md:-left-[8%] -left-[4%] top-1/2 z-10 w-8 h-8 text-black hover:text-gray-500 cursor-pointer"
             onClick={() => setGoToSlide((val) => (val === 0 ? props.cards.length - 1 : (val || 0) - 1))}
           />
           <ChevronRightIcon
-            className="absolute text-white -right-[8%] top-1/2 z-10 w-8 h-8 hover:text-gray-500 cursor-pointer"
+            className="absolute md:text-white md:-right-[8%] -right-[4%] top-1/2 z-10 w-8 h-8 text-black hover:text-gray-500 cursor-pointer"
             onClick={() => setGoToSlide((val) => (val === props.cards.length - 1 ? 0 : (val || 0) + 1))}
           />
         </React.Fragment>

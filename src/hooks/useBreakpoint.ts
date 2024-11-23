@@ -7,6 +7,7 @@ const breakpoints = {
   1280: 'xl',
   1536: '2xl',
 };
+const mobileView = new Set(['md', 'sm', 'xs']);
 
 const useBreakpoint = () => {
   const [breakpoint, setBreakPoint] = useState('');
@@ -50,7 +51,10 @@ const useBreakpoint = () => {
 
     return () => window.removeEventListener('resize', handleResize);
   }, [windowSize.width]);
-  return breakpoint;
+  return {
+    isMobile: mobileView.has(breakpoint),
+    breakpoint,
+  };
 };
 
 export default useBreakpoint;
