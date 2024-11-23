@@ -11,7 +11,6 @@ export function CarouselCard({ index, slideIdx }: CarouselCardProps) {
     transform: show ? 'scale(1.03)' : 'scale(1)',
     boxShadow: show ? '0 20px 25px rgb(0 0 0 / 25%)' : '0 15px 20px rgb(0 0 0 / 14%)',
   });
-  console.log(slideIdx === index - 1, slideIdx, index);
 
   return (
     <React.Fragment>
