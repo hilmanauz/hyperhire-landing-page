@@ -1,4 +1,3 @@
-import React from 'react';
 import { ContainerProps } from './container.types';
 import { classNames } from '@/utils/classNames';
 

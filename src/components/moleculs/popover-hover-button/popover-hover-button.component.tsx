@@ -1,3 +1,4 @@
+'use client';
 import { classNames } from '@/utils/classNames';
 import React from 'react';
 import { PopoverHoverButtonProps } from './popover-hover-button.types';
@@ -28,7 +29,7 @@ export function PopoverHoverButton({ menuTitle, linksArray }: PopoverHoverButton
         afterHide={() => {
           setIsOpen(false);
         }}>
-        <ul className="space-y-2 py-2">
+        <ul className="space-y-2 py-2 collection-list w-auto">
           {linksArray.map(({ title }, idx) => (
             <li className="text-sm cursor-pointer hover:font-bold" key={`${title}-${idx}`}>
               {title}

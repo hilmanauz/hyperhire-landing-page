@@ -1,12 +1,8 @@
-export type SpringCarouselProps = {
+export type SpringCarouselProps<T extends Record<string, any>> = {
   offset: number;
-  // slideIdx?: number;
-  // setSlideIdx?: React.Dispatch<React.SetStateAction<number>>;
   showArrows?: boolean;
-  cards: (slideIdx: number) => Array<{
-    key: number;
-    content: JSX.Element;
-  }>;
+  data: Array<T>;
+  cardComp: ({ data, index, slideIdx }: { data: T; index: number; slideIdx: number }) => React.ReactNode;
   width?: string;
   height?: string;
   margin?: string;

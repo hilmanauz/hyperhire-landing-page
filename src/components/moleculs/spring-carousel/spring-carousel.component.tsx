@@ -1,9 +1,9 @@
+'use client';
 import React from 'react';
 import { config } from 'react-spring';
 import { SpringCarouselProps } from './spring-carousel.types';
 import CarouselComp from 'react-spring-3d-carousel';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
-import useBreakpoint from '@/hooks/useBreakpoint';
 
 const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   return (
@@ -12,8 +12,7 @@ const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   );
 };
 
-export function SpringCarousel(props: SpringCarouselProps) {
-  const { isMobile } = useBreakpoint();
+export function SpringCarousel<T extends Record<string, any>>(props: SpringCarouselProps<T>) {
   const [offsetRadius, setOffsetRadius] = React.useState(2);
   const [showArrows, setShowArrows] = React.useState(false);
   const [goToSlide, setGoToSlide] = React.useState<number>(0);
@@ -21,8 +20,12 @@ export function SpringCarousel(props: SpringCarouselProps) {
 
   const table = React.useMemo(
     () =>
-      props.cards(goToSlide).map((element, index) => {
-        return { ...element, onClick: () => setGoToSlide(index) };
+      props.data.map((element, index) => {
+        return {
+          key: index,
+          content: <props.cardComp data={element} index={index} slideIdx={goToSlide} />,
+          onClick: () => setGoToSlide(index),
+        };
       }),
     [goToSlide],
   );
@@ -87,11 +90,11 @@ export function SpringCarousel(props: SpringCarouselProps) {
         <React.Fragment>
           <ChevronLeftIcon
             className="absolute md:text-white md:-left-[8%] -left-[4%] top-1/2 z-10 w-8 h-8 text-black hover:text-gray-500 cursor-pointer"
-            onClick={() => setGoToSlide((val) => (val === 0 ? props.cards.length - 1 : (val || 0) - 1))}
+            onClick={() => setGoToSlide((val) => (val === 0 ? props.data.length - 1 : (val || 0) - 1))}
           />
           <ChevronRightIcon
             className="absolute md:text-white md:-right-[8%] -right-[4%] top-1/2 z-10 w-8 h-8 text-black hover:text-gray-500 cursor-pointer"
-            onClick={() => setGoToSlide((val) => (val === props.cards.length - 1 ? 0 : (val || 0) + 1))}
+            onClick={() => setGoToSlide((val) => (val === props.data.length - 1 ? 0 : (val || 0) + 1))}
           />
         </React.Fragment>
       )}
