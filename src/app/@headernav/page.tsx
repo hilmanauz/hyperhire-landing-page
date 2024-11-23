@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 
 export default async function HeaderNav() {
-  const response = await fetch(`${process.env.url}/api/navigations`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/navigations`);
   const data = await response.json();
   return (
     <Container>
