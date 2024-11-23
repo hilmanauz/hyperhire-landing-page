@@ -6,7 +6,10 @@ import { Button, Tooltip } from '@/components/atoms';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
 import './popover-hover-button.css';
 
-export function PopoverHoverButton({ menuTitle, linksArray }: PopoverHoverButtonProps) {
+export function PopoverHoverButton<T extends Record<string, any>>({
+  menuTitle,
+  linksArray,
+}: PopoverHoverButtonProps<T>) {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <React.Fragment>

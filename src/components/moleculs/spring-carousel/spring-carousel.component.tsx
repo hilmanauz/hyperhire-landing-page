@@ -12,7 +12,7 @@ const getTouches = (evt: React.TouchEvent<HTMLDivElement>) => {
   );
 };
 
-export function SpringCarousel<T extends Record<string, any>>(props: SpringCarouselProps<T>) {
+export default function SpringCarousel<T extends Record<string, any>>(props: SpringCarouselProps<T>) {
   const [offsetRadius, setOffsetRadius] = React.useState(2);
   const [showArrows, setShowArrows] = React.useState(false);
   const [goToSlide, setGoToSlide] = React.useState<number>(0);

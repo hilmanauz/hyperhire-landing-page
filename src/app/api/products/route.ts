@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 
+export type ProductsDataProps = {
+  url: string;
+  title: string;
+};
+
 export async function GET(request: Request) {
   const data = [
     { url: '/icon-marketing.png', title: '퍼블리셔' },

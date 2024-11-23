@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
 
+export type ProfilesDataProps = {
+  url: string;
+  flagUrl: string;
+  name: string;
+  desc: string;
+  title: Array<string>;
+};
+
 export async function GET(request: Request) {
   const data = [
     {
