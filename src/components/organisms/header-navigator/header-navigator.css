@@ -1,0 +1,113 @@
+.change > div:nth-child(1) {
+  -webkit-transform: rotate(-45deg) translate(-7px, 1px);
+  transform: rotate(-45deg) translate(-7px, 1px);
+}
+.change > div:nth-child(2) {
+  opacity: 0;
+}
+.change > div:nth-child(3) {
+  -webkit-transform: rotate(45deg) translate(-9px, -2px);
+  transform: rotate(45deg) translate(-9px, -2px);
+}
+
+.navigator {
+  background-color: white;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  padding: 1rem 0 0.5rem 0;
+  /* padding-top: 50px; */
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+  height: 100vh;
+  margin: 0 -100%;
+  margin: 0 calc(50% - 50vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .navigator__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    @media (min-width: 640px) {
+      column-gap: 1rem;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  @media (min-width: 640px) {
+    border-bottom: 0px;
+    background-color: transparent;
+    position: relative !important;
+    transform: translateY(0) !important;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+  }
+  .navigator__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 640px) {
+      width: 200px;
+      button {
+        display: inline-block;
+      }
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+  }
+  .navigator__settings {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 0.5rem;
+    text-align: center;
+    @media (min-width: 640px) {
+      display: none;
+    }
+    .account {
+      border-left: 1px solid black;
+    }
+  }
+}
+
+.animate {
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+}
+
+.show {
+  transform: translateY(46.5vh) !important;
+  -webkit-transform: translateY(46.5vh) !important;
+  -moz-transform: translateY(46.5vh) !important;
+  -ms-transform: translateY(46.5vh) !important;
+  -o-transform: translateY(46.5vh) !important;
+}
+
+.menu-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+  padding-right: 0;
+  outline: none;
+}
+.menu-button > div {
+  background-color: #ffffff;
+  &.change {
+    background-color: #000000;
+  }
+  border-radius: 4px;
+  height: 3px;
+  margin: 4px 0;
+  transition: 0.4s;
+  width: 27px;
+}

@@ -4,6 +4,17 @@ import React from 'react';
 export function BannerInfo() {
   return (
     <div className={'space-y-7 text-white w-full md:w-1/2'}>
+      <ScrollAnimation animateIn="fadeIn" duration={0.5} delay={800} offset={1}>
+        <Tooltip
+          offset={20}
+          anchorSelect="#banner-text"
+          isOpen
+          place="top-start"
+          className="!bg-[#8BC4FF] md:!bg-white"
+          classNameArrow={'!left-3'}>
+          <span className="md:text-[#40E2E8] text-white text-lg">풀타임, 파트타임</span>
+        </Tooltip>
+      </ScrollAnimation>
       <ScrollAnimation animateIn="fadeInUp" duration={0.5}>
         <h2
           id="banner-text"
@@ -35,17 +46,6 @@ export function BannerInfo() {
           </div>
         </ScrollAnimation>
       </div>
-      <ScrollAnimation animateIn="fadeIn" duration={0.5} delay={800} offset={1}>
-        <Tooltip
-          offset={20}
-          anchorSelect="#banner-text"
-          isOpen
-          place="top-start"
-          className="!bg-[#8BC4FF] md:!bg-white"
-          classNameArrow={'!left-3'}>
-          <span className="md:text-[#40E2E8] text-white text-lg">풀타임, 파트타임</span>
-        </Tooltip>
-      </ScrollAnimation>
     </div>
   );
 }
